@@ -11,9 +11,16 @@ const Layout = ({ children }) => {
   return (
     <div className={`flex min-h-screen ${colors.background} ${colors.text}`}>
       <Sidebar />
-      <div className={`flex-1 transition-all duration-300 ease-in-out ${isOpen ? "md:ml-64" : ""}`}>
-        <Header />
-        <main className="p-4">{children}</main>
+      <div className={`flex-1 transition-all duration-300 ease-in-out ${isOpen ? "md:ml-64" : "md:ml-0"}`}>
+        <div className="relative z-10">
+          {" "}
+          {/* Increased z-index for header */}
+          <Header />
+        </div>
+        {/* <main className={`flex justify-between items-center p-6 ${colors.cardBg} ${colors.text} shadow-md rounded-lg m-4`} > */}
+        <main className='p-2' >
+          <div className="container mx-auto">{children}</div>
+        </main>
       </div>
     </div>
   )

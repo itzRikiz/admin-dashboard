@@ -6,12 +6,12 @@ const Card = ({ icon: Icon, title, value }) => {
 
   return (
     <div
-      className={`card p-4 rounded-lg ${colors.cardBg} ${colors.text} transition-all duration-300 ease-in-out transform hover:-translate-y-1 ${
-        colors.isDarkMode ? "" : "shadow-md hover:shadow-lg"
+      className={`card p-6 rounded-lg ${colors.cardBg} ${colors.text} transition-all duration-300 ease-in-out transform hover:-translate-y-1 ${
+        colors.isDarkMode ? "shadow-lg shadow-blue-500/20" : "shadow-md hover:shadow-lg"
       }`}
     >
-      <div className="flex items-center">
-        <div className={`text-3xl ${colors.text} mr-4`}>
+      <div className="flex items-center mb-4">
+        <div className={`text-3xl ${colors.text} mr-4 bg-blue-500 p-3 rounded-full`}>
           <Icon />
         </div>
         <div>

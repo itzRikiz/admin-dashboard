@@ -26,13 +26,14 @@ const Header = () => {
     <header
       className={`flex justify-between items-center p-6 ${colors.cardBg} ${colors.text} shadow-md rounded-lg m-4`}
     >
-      {!isOpen && (
-        <button onClick={toggleSidebar} className="text-2xl focus:outline-none md:hidden">
-          <FaBars />
-        </button>
-      )}
-      {isOpen && <div className="w-8" />}
-      <h1 className="text-xl font-bold">Admin Dashboard</h1>
+      <div className="flex items-center">
+        {!isOpen && (
+          <button onClick={toggleSidebar} className="text-2xl focus:outline-none md:hidden mr-4">
+            <FaBars />
+          </button>
+        )}
+        <h1 className="text-xl font-bold">Admin Dashboard</h1>
+      </div>
       <div className="flex items-center space-x-4">
         <button onClick={toggleTheme} className="text-2xl focus:outline-none">
           {isDarkMode ? <FaSun /> : <FaMoon />}
@@ -40,13 +41,13 @@ const Header = () => {
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className="w-10 h-10 rounded-full bg-gray-300 flex items-center justify-center focus:outline-none"
+            className="w-10 h-10 rounded-full bg-gray-700 flex items-center justify-center focus:outline-none"
           >
-            <FaUser />
+            <FaUser className="text-white" />
           </button>
           {isDropdownOpen && (
             <div
-              className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg ${colors.cardBg} ring-1 ring-black ring-opacity-5`}
+              className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg ${colors.cardBg} ring-1 ring-black ring-opacity-5 z-50`}
             >
               <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                 <button
