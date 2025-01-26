@@ -1,6 +1,15 @@
-import React from "react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts"
-import { useTheme } from "../contexts/ThemeContext"
+import React from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
+import { useTheme } from "../contexts/ThemeContext";
 
 const data = [
   { name: "Jan", revenue: 4000 },
@@ -10,10 +19,10 @@ const data = [
   { name: "May", revenue: 1890 },
   { name: "Jun", revenue: 2390 },
   { name: "Jul", revenue: 3490 },
-]
+];
 
 const LineChartComponent = () => {
-  const { isDarkMode, colors } = useTheme()
+  const { isDarkMode, colors } = useTheme();
 
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -26,11 +35,17 @@ const LineChartComponent = () => {
           bottom: 5,
         }}
       >
-        <CartesianGrid strokeDasharray="3 3" stroke={isDarkMode ? "#ffffff20" : "#00000020"} />
+        <CartesianGrid
+          strokeDasharray="3 3"
+          stroke={isDarkMode ? "#ffffff20" : "#00000020"}
+        />
         <XAxis dataKey="name" stroke={colors.text} />
         <YAxis stroke={colors.text} />
         <Tooltip
-          contentStyle={{ backgroundColor: isDarkMode ? "#1a2234" : "#fff", border: "none" }}
+          contentStyle={{
+            backgroundColor: isDarkMode ? "#1a2234" : "#fff",
+            border: "none",
+          }}
           labelStyle={{ color: isDarkMode ? "#fff" : "#000" }}
         />
         <Legend />
@@ -46,8 +61,7 @@ const LineChartComponent = () => {
         />
       </LineChart>
     </ResponsiveContainer>
-  )
-}
+  );
+};
 
-export default LineChartComponent
-
+export default LineChartComponent;
