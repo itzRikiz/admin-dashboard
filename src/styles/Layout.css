@@ -1,0 +1,31 @@
+.app {
+    display: flex;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+  }
+  
+  .app.dark {
+    background-color: #1a1a1a;
+    color: #ffffff;
+  }
+  
+  .app.light {
+    background-color: #f0f0f0;
+    color: #333333;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+  }
+  
+  .content.sidebar-open {
+    margin-left: 250px;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  
