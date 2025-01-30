@@ -1,14 +1,25 @@
-import React, { Suspense } from "react"
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom"
-import { ThemeProvider } from "./contexts/ThemeContext"
-import { SidebarProvider } from "./contexts/SidebarContext"
-import { AuthProvider, useAuth } from "./contexts/AuthContext"
-import Layout from "./components/Layout"
-import { routes, authRoutes } from "./routes"
+/* eslint-disable react/prop-types */
+import { Suspense } from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { ThemeProvider } from "./contexts/ThemeContext";
+import { SidebarProvider } from "./contexts/SidebarContext";
+import { AuthProvider, useAuth } from "./contexts/AuthContext";
+import Layout from "./components/Layout";
+import { routes, authRoutes } from "./routes";
+
+function GuestRoute({ children }) {
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? <Navigate to="/" replace /> : children;
+}
 
 function ProtectedRoute({ children }) {
-  const { isAuthenticated } = useAuth()
-  return isAuthenticated ? children : <Navigate to="/login" />
+  const { isAuthenticated } = useAuth();
+  return isAuthenticated ? children : <Navigate to="/login" replace />;
 }
 
 function App() {
@@ -20,7 +31,15 @@ function App() {
             <Suspense fallback={<div>Loading...</div>}>
               <Routes>
                 {authRoutes.map((route) => (
-                  <Route key={route.path} path={route.path} element={<route.element />} />
+                  <Route
+                    key={route.path}
+                    path={route.path}
+                    element={
+                      <GuestRoute>
+                        <route.element />
+                      </GuestRoute>
+                    }
+                  />
                 ))}
                 <Route
                   path="/*"
@@ -29,7 +48,11 @@ function App() {
                       <Layout>
                         <Routes>
                           {routes.map((route) => (
-                            <Route key={route.path} path={route.path} element={<route.element />} />
+                            <Route
+                              key={route.path}
+                              path={route.path}
+                              element={<route.element />}
+                            />
                           ))}
                         </Routes>
                       </Layout>
@@ -42,8 +65,7 @@ function App() {
         </AuthProvider>
       </SidebarProvider>
     </ThemeProvider>
-  )
+  );
 }
 
-export default App
-
+export default App;
