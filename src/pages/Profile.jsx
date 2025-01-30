@@ -1,13 +1,14 @@
-import React from "react"
-import { useTheme } from "../contexts/ThemeContext"
-import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa"
+import { useTheme } from "../contexts/ThemeContext";
+import { FaUser, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 const Profile = () => {
-  const { colors } = useTheme()
+  const { colors } = useTheme();
 
   return (
     <div className={`${colors.background} ${colors.text} min-h-screen p-8`}>
-      <div className={`max-w-4xl mx-auto ${colors.cardBg} rounded-lg shadow-lg p-8`}>
+      <div
+        className={`max-w-4xl mx-auto ${colors.cardBg} rounded-lg shadow-lg p-8`}
+      >
         <h2 className="text-3xl font-bold mb-8">User Profile</h2>
         <div className="flex flex-col md:flex-row">
           <div className="md:w-1/3 mb-8 md:mb-0">
@@ -18,7 +19,9 @@ const Profile = () => {
           <div className="md:w-2/3">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <h3 className="text-xl font-semibold mb-2">Personal Information</h3>
+                <h3 className="text-xl font-semibold mb-2">
+                  Personal Information
+                </h3>
                 <p className="mb-2">
                   <FaUser className="inline mr-2" /> John Doe
                 </p>
@@ -43,8 +46,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
-
+export default Profile;

@@ -1,14 +1,18 @@
-import React, { createContext, useState, useContext } from "react"
+/* eslint-disable react/prop-types */
+import { createContext, useState, useContext } from "react";
 
-const SidebarContext = createContext()
+const SidebarContext = createContext();
 
-export const useSidebar = () => useContext(SidebarContext)
+export const useSidebar = () => useContext(SidebarContext);
 
 export const SidebarProvider = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(true);
 
-  const toggleSidebar = () => setIsOpen(!isOpen)
+  const toggleSidebar = () => setIsOpen(!isOpen);
 
-  return <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>{children}</SidebarContext.Provider>
-}
-
+  return (
+    <SidebarContext.Provider value={{ isOpen, toggleSidebar }}>
+      {children}
+    </SidebarContext.Provider>
+  );
+};

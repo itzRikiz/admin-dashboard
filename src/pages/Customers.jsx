@@ -1,5 +1,3 @@
-import React from "react"
-
 const Customers = () => {
   return (
     <div className="customers">
@@ -7,8 +5,7 @@ const Customers = () => {
       {/* Add customer list or table component here */}
       <p>Customer list coming soon...</p>
     </div>
-  )
-}
+  );
+};
 
-export default Customers
-
+export default Customers;

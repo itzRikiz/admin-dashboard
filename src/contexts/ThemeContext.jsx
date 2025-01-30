@@ -1,24 +1,25 @@
-import React, { createContext, useState, useContext, useEffect } from "react"
+/* eslint-disable react/prop-types */
+import { createContext, useState, useContext, useEffect } from "react";
 
-const ThemeContext = createContext()
+const ThemeContext = createContext();
 
-export const useTheme = () => useContext(ThemeContext)
+export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme")
+    const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark")
+      setIsDarkMode(savedTheme === "dark");
     }
-  }, [])
+  }, []);
 
   const toggleTheme = () => {
-    const newTheme = !isDarkMode
-    setIsDarkMode(newTheme)
-    localStorage.setItem("theme", newTheme ? "dark" : "light")
-  }
+    const newTheme = !isDarkMode;
+    setIsDarkMode(newTheme);
+    localStorage.setItem("theme", newTheme ? "dark" : "light");
+  };
 
   const theme = {
     isDarkMode,
@@ -36,8 +37,9 @@ export const ThemeProvider = ({ children }) => {
           cardBg: "bg-white",
           hover: "hover:bg-gray-100",
         },
-  }
+  };
 
-  return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
-}
-
+  return (
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+  );
+};

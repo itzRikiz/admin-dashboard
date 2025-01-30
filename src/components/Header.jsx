@@ -1,26 +1,26 @@
-import React, { useState } from "react"
-import { useTheme } from "../contexts/ThemeContext"
-import { useSidebar } from "../contexts/SidebarContext"
-import { useAuth } from "../contexts/AuthContext"
-import { FaBars, FaSun, FaMoon, FaUser, FaSignOutAlt } from "react-icons/fa"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { useTheme } from "../contexts/ThemeContext";
+import { useSidebar } from "../contexts/SidebarContext";
+import { useAuth } from "../contexts/AuthContext";
+import { FaBars, FaSun, FaMoon, FaUser } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const { isDarkMode, toggleTheme, colors } = useTheme()
-  const { isOpen, toggleSidebar } = useSidebar()
-  const { logout } = useAuth()
-  const navigate = useNavigate()
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const { isDarkMode, toggleTheme, colors } = useTheme();
+  const { isOpen, toggleSidebar } = useSidebar();
+  const { logout } = useAuth();
+  const navigate = useNavigate();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const handleLogout = () => {
-    logout()
-    navigate("/login")
-  }
+    logout();
+    navigate("/login");
+  };
 
   const handleProfile = () => {
-    navigate("/profile")
-    setIsDropdownOpen(false)
-  }
+    navigate("/profile");
+    setIsDropdownOpen(false);
+  };
 
   return (
     <header
@@ -28,7 +28,10 @@ const Header = () => {
     >
       <div className="flex items-center">
         {!isOpen && (
-          <button onClick={toggleSidebar} className="text-2xl focus:outline-none md:hidden mr-4">
+          <button
+            onClick={toggleSidebar}
+            className="text-2xl focus:outline-none md:hidden mr-4"
+          >
             <FaBars />
           </button>
         )}
@@ -49,7 +52,12 @@ const Header = () => {
             <div
               className={`absolute right-0 mt-2 w-48 rounded-md shadow-lg ${colors.cardBg} ring-1 ring-black ring-opacity-5 z-50`}
             >
-              <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+              <div
+                className="py-1"
+                role="menu"
+                aria-orientation="vertical"
+                aria-labelledby="options-menu"
+              >
                 <button
                   onClick={handleProfile}
                   className={`block px-4 py-2 text-sm ${colors.text} ${colors.hover} w-full text-left`}
@@ -70,8 +78,7 @@ const Header = () => {
         </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
-
+export default Header;

@@ -1,5 +1,3 @@
-import React from "react"
-
 const Analytics = () => {
   return (
     <div className="analytics">
@@ -7,8 +5,7 @@ const Analytics = () => {
       {/* Add charts or graphs components here */}
       <p>Analytics data coming soon...</p>
     </div>
-  )
-}
+  );
+};
 
-export default Analytics
-
+export default Analytics;

@@ -1,13 +1,17 @@
-import React from "react"
-import { useTheme } from "../contexts/ThemeContext"
-import Card from "../components/Card"
-import PieChartComponent from "../components/PieChartComponent"
-import LineChartComponent from "../components/LineChartComponent"
-import BarChartComponent from "../components/BarChartComponent"
-import { FaUsers, FaShoppingCart, FaMoneyBillWave, FaChartLine } from "react-icons/fa"
+import { useTheme } from "../contexts/ThemeContext";
+import Card from "../components/Card";
+import PieChartComponent from "../components/PieChartComponent";
+import LineChartComponent from "../components/LineChartComponent";
+import BarChartComponent from "../components/BarChartComponent";
+import {
+  FaUsers,
+  FaShoppingCart,
+  FaMoneyBillWave,
+  FaChartLine,
+} from "react-icons/fa";
 
 const Dashboard = () => {
-  const { colors } = useTheme()
+  const { colors } = useTheme();
 
   return (
     <div className={`dashboard ${colors.background} ${colors.text}`}>
@@ -33,8 +37,7 @@ const Dashboard = () => {
         <BarChartComponent />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Dashboard
-
+export default Dashboard;
